@@ -1,2 +1,2 @@
-# startShell
+# StartShell
 Paperの起動スクリプト
