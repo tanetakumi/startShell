@@ -9,11 +9,14 @@ HOME=/home/minecraft/main
 # download folderの場所
 DOWNLOAD=$HOME/download
 
+# 最新版をダウンロードしたときに名前が変わるのものに対しては名前の変化により、見極める。
+
 
 # BungeeCord ----------------------------------------------------------------
 # cp -u $DOWNLOAD/BungeeCord.jar .
 # cp -u $DOWNLOAD/Geyser-BungeeCord.jar ./plugins
 # cp -u $DOWNLOAD/floodgate-bungee.jar ./plugins
+# java -jar -Xms${MEMORY} -Xmx${MEMORY} BungeeCord.jar nogui
 # --------------------------------------------------------------------------
 
 
