@@ -1,2 +1,2 @@
 # StartShell
-Paperの起動スクリプト
+Paper,BungeeCord,Waterfallの起動スクリプトをまとめる
