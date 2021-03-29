@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # 起動メモリ
-MEMORY=8G
+MEMORY=1G
 
 # bungee.sh server.sh を置いた場所
 HOME=/home/minecraft/main
@@ -13,10 +13,10 @@ DOWNLOAD=$HOME/download
 
 
 # BungeeCord ----------------------------------------------------------------
-# cp -u $DOWNLOAD/BungeeCord.jar .
-# cp -u $DOWNLOAD/Geyser-BungeeCord.jar ./plugins
-# cp -u $DOWNLOAD/floodgate-bungee.jar ./plugins
-# java -jar -Xms${MEMORY} -Xmx${MEMORY} BungeeCord.jar nogui
+cp -u $DOWNLOAD/BungeeCord.jar .
+cp -u $DOWNLOAD/Geyser-BungeeCord.jar ./plugins
+cp -u $DOWNLOAD/floodgate-bungee.jar ./plugins
+java -jar -Xms${MEMORY} -Xmx${MEMORY} BungeeCord.jar nogui
 # --------------------------------------------------------------------------
 
 
@@ -37,18 +37,18 @@ DOWNLOAD=$HOME/download
 
 
 # paper ----------------------------------------------------------------
-PAPER_JAR=`find . -maxdepth 1 -name "paper*" -name "*.jar"`
-DOWNLOAD_PAPER_JAR=`find $DOWNLOAD -maxdepth 1 -name "paper*" -name "*.jar"`
+# PAPER_JAR=`find . -maxdepth 1 -name "paper*" -name "*.jar"`
+# DOWNLOAD_PAPER_JAR=`find $DOWNLOAD -maxdepth 1 -name "paper*" -name "*.jar"`
 
-if [ "${PAPER_JAR##*/}" != "${DOWNLOAD_PAPER_JAR##*/}" ];then
-    rm $PAPER_JAR
-    cp $DOWNLOAD_PAPER_JAR .
-    echo "Update"
-else 
-    echo "This paper is latest version"
-fi
-JAR=`find . -maxdepth 1 -name "paper*" -name "*.jar"`
-java -jar -Xms${MEMORY} -Xmx${MEMORY} ${JAR} nogui
+# if [ "${PAPER_JAR##*/}" != "${DOWNLOAD_PAPER_JAR##*/}" ];then
+#     rm $PAPER_JAR
+#     cp $DOWNLOAD_PAPER_JAR .
+#     echo "Update"
+# else 
+#     echo "This paper is latest version"
+# fi
+# JAR=`find . -maxdepth 1 -name "paper*" -name "*.jar"`
+# java -jar -Xms${MEMORY} -Xmx${MEMORY} ${JAR} nogui
 # --------------------------------------------------------------------------
 
 
