@@ -1,16 +1,51 @@
 #! /bin/bash
 
-# 引数確認 引数 <メモリ>
-if [ $# -ne 1 ];then
-    echo "指定された引数は$#個です。" 1>&2
-    echo "実行するには1個の引数が必要です。" 1>&2
-    exit 1
+# 起動メモリ
+MEMORY=8G
+
+# bungee.sh server.sh を置いた場所
+HOME=/home/minecraft/main
+
+# download folderの場所
+DOWNLOAD=$HOME/download
+
+
+# BungeeCord ----------------------------------------------------------------
+# cp -u $DOWNLOAD/BungeeCord.jar .
+# cp -u $DOWNLOAD/Geyser-BungeeCord.jar ./plugins
+# cp -u $DOWNLOAD/floodgate-bungee.jar ./plugins
+# --------------------------------------------------------------------------
+
+
+# waterfall ----------------------------------------------------------------
+# WATERFALL_JAR=`find . -maxdepth 1 -name "waterfall*" -name "*.jar"`
+# DOWNLOAD_WATERFALL_JAR=`find $DOWNLOAD -maxdepth 1 -name "waterfall*" -name "*.jar"`
+
+# if [ "${WATERFALL_JAR##*/}" != "${DOWNLOAD_WATERFALL_JAR##*/}" ];then
+#     rm $WATERFALL_JAR
+#     cp $DOWNLOAD_WATERFALL_JAR .
+#     echo "Update"
+# else 
+#     echo "This waterfall is latest version"
+# fi
+# JAR=`find . -maxdepth 1 -name "waterfall*" -name "*.jar"`
+# java -jar -Xms${MEMORY} -Xmx${MEMORY} ${JAR} nogui
+# --------------------------------------------------------------------------
+
+
+# paper ----------------------------------------------------------------
+PAPER_JAR=`find . -maxdepth 1 -name "paper*" -name "*.jar"`
+DOWNLOAD_PAPER_JAR=`find $DOWNLOAD -maxdepth 1 -name "paper*" -name "*.jar"`
+
+if [ "${PAPER_JAR##*/}" != "${DOWNLOAD_PAPER_JAR##*/}" ];then
+    rm $PAPER_JAR
+    cp $DOWNLOAD_PAPER_JAR .
+    echo "Update"
+else 
+    echo "This paper is latest version"
 fi
+JAR=`find . -maxdepth 1 -name "paper*" -name "*.jar"`
+java -jar -Xms${MEMORY} -Xmx${MEMORY} ${JAR} nogui
+# --------------------------------------------------------------------------
 
-cd `dirname $0`
 
-SERVER=`find . -maxdepth 1 -name "paper*" -name "*.jar"`
-
-echo $SERVER
-
-java -jar -Xms${1} -Xmx${1} $SERVER nogui
