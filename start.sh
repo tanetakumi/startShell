@@ -25,7 +25,7 @@ WATERFALL_JAR=`find . -maxdepth 1 -name "waterfall*" -name "*.jar"`
 DOWNLOAD_WATERFALL_JAR=`find $DOWNLOAD -maxdepth 1 -name "waterfall*" -name "*.jar"`
 
 if [ "${WATERFALL_JAR##*/}" != "${DOWNLOAD_WATERFALL_JAR##*/}" ];then
-    rm $WATERFALL_JAR
+    rm -f $WATERFALL_JAR
     cp $DOWNLOAD_WATERFALL_JAR .
     echo "Update"
 else 
