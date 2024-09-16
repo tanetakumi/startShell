@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # 起動メモリ
-MEMORY=8G
+MEMORY=5G
 
 # bungee.sh server.sh を置いた場所
 HOME=/home/minecraft/main
